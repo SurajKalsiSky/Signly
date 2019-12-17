@@ -2,9 +2,10 @@ DROP TABLE IF EXISTS BOOKING;
 
 CREATE TABLE BOOKING (
   id INT AUTO_INCREMENT  PRIMARY KEY,
-  bookingName VARCHAR(250) NOT NULL,
-  companyName VARCHAR(250) NOT NULL,
-  timeFrom TIMESTAMP,
-  timeTo TIMESTAMP,
-  bookingState ENUM('PENDING', 'ACCEPTED') NOT NULL
+  booking_name VARCHAR(250),
+  company_name VARCHAR(250) NOT NULL,
+  full_name VARCHAR(250) NOT NULL,
+  time_from TIMESTAMP,
+  time_to TIMESTAMP,
+  booking_state ENUM('PENDING', 'ACCEPTED') NOT NULL
 );
