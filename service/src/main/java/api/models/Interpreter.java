@@ -1,4 +1,4 @@
-package service.roles;
+package api.models;
 
 public class Interpreter {
 

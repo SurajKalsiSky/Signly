@@ -1,9 +1,9 @@
-package api;
+package api.models;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import service.booking.BookingState;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "Booking")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Booking {
@@ -45,4 +46,5 @@ public class Booking {
     private String fullName;
 
     private BookingState state;
+
 }

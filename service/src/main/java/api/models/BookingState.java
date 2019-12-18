@@ -1,4 +1,4 @@
-package service.booking;
+package api.models;
 
 public enum BookingState {
     PENDING,
