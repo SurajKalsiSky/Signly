@@ -69,6 +69,8 @@ public class Application {
                     .state(BookingState.ACCEPTED)
                 .build()
             );
+
+            System.out.println("Successfully added data to database");
         };
     }
 }
