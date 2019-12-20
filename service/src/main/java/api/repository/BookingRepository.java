@@ -9,7 +9,9 @@ public interface BookingRepository extends CrudRepository<Booking, Integer> {
 
     void deleteById(int id);
 
-    Booking findBookingById(int id);
+    Booking findById(int id);
 
     Iterable<Booking> findAll();
+
+    Booking findByCompanyName(String companyName);
 }
