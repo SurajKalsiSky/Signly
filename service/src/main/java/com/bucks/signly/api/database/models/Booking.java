@@ -1,5 +1,6 @@
-package api.models;
+package com.bucks.signly.api.database.models;
 
+import com.bucks.signly.api.domain.BookingState;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,6 +46,8 @@ public class Booking {
     @Column(name = "full_name")
     private String fullName;
 
+    @NotNull
+    @Column(name = "state")
     private BookingState state;
 
 }

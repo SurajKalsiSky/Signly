@@ -1,7 +1,8 @@
-package api.repository;
+package com.bucks.signly.api.repository;
 
-import api.models.Booking;
-import api.models.BookingState;
+import com.bucks.signly.api.database.BookingRepository;
+import com.bucks.signly.api.database.models.Booking;
+import com.bucks.signly.api.domain.BookingState;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-class BookingRepositoryTest {
+public class BookingRepositoryTest {
 
     @Autowired
     private TestEntityManager entityManager;
