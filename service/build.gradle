@@ -28,7 +28,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.2.2.RELEASE'
-    compile group: 'hikari-cp', name: 'hikari-cp', version: '2.9.0'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.2.RELEASE'
     annotationProcessor 'org.projectlombok:lombok'
 
