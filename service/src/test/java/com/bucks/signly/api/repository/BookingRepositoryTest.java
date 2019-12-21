@@ -3,17 +3,15 @@ package com.bucks.signly.api.repository;
 import com.bucks.signly.api.database.BookingRepository;
 import com.bucks.signly.api.database.models.Booking;
 import com.bucks.signly.api.domain.BookingState;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -26,13 +24,13 @@ public class BookingRepositoryTest {
     private BookingRepository bookingRepository;
 
     @Test
-    void injectedComponentsAreNotNull(){
+    public void verifyingInjectedComponentsAreNotNull(){
         assertThat(entityManager).isNotNull();
         assertThat(bookingRepository).isNotNull();
     }
 
     @Test
-    void deleteById() {
+    public void deleteById() {
         //Given
         Booking booking = Booking.builder()
                     .bookingName("Wealth Management")
@@ -55,7 +53,7 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    void findBookingById() {
+    public void findBookingById() {
         //Given
         Booking booking = Booking.builder()
                     .bookingName("New Account")
@@ -80,7 +78,7 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    void findBookingByCompanyName() {
+    public void findBookingByCompanyName() {
         //Given
         Booking booking1 = Booking.builder()
                 .bookingName("Wealth Management")
@@ -115,7 +113,7 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    void findAll() {
+    public void findAll() {
         //Given
         Booking booking1 = Booking.builder()
                 .bookingName("Wealth Management")
