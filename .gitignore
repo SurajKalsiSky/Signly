@@ -2,6 +2,7 @@
 # ------
 service/.gradle
 service/build
+service/bin
 /build
 /buildSrc/build
 /buildSrc/subprojects/*/build
