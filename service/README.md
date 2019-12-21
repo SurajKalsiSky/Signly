@@ -1,7 +1,7 @@
 # signly backend service
 
 ## build application
-``./gradlew build``
+``./gradlew clean build``
 
 ## run application
 ``java -jar build/libs/signly-service-0.1.0.jar``

@@ -1,6 +1,6 @@
-package api.repository;
+package com.bucks.signly.api.database;
 
-import api.models.Booking;
+import com.bucks.signly.api.database.models.Booking;
 import org.springframework.data.repository.CrudRepository;
 
 public interface BookingRepository extends CrudRepository<Booking, Integer> {
