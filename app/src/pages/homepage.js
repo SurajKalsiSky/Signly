@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import WelcomePage from './welcomepage';
 import './homepage.css';
 
-export default class Navbar extends Component {
+export default class Homepage extends Component {
     state = {
         loggedInAs: null,
         message: "hi"
@@ -11,6 +12,7 @@ export default class Navbar extends Component {
         fetch("http://localhost:8080/", {mode: 'no-cors'})
           .then(
             (result) => {
+            console.log("TCL: Navbar -> componentDidMount -> result", result)
               this.setState({
                 message: 'Received message',
               });
@@ -21,35 +23,17 @@ export default class Navbar extends Component {
           )
       }
 
-    handleEmployeeSignIn = () => {
+    handleSignIn = (userType) => {
+        console.log("TCL: Navbar -> handleEmployeeSignIn -> userType", userType)
         this.setState({
-            loggedInAs: 'EMPLOYEE'
-        })
-    }
-
-    handleInterpreterSignIn = () => {
-        this.setState({
-            loggedInAs: 'INTERPRETER'
+            loggedInAs: userType
         })
     }
 
     render() {
         if (!this.state.loggedInAs) {
             return (
-                <div className="Homepage">
-                    <header className="Homepage-welcome-message">
-                        <p> Welcome to the Signly booking app </p>
-                        <p className="Homepage-second-message"> Who are you? </p>
-                    </header>
-                    <div className="Homepage-buttons">
-                        <button type="button" className="Homepage-btn" onClick={this.handleEmployeeSignIn}>
-                            Employee
-                        </button>
-                        <button type="button" className="Homepage-btn" onClick={this.handleInterpreterSignIn}>
-                            Interpreter
-                        </button>
-                    </div>
-                </div>
+                <WelcomePage handleSignIn={this.handleSignIn} />
             );
         } else if (this.state.loggedInAs === 'EMPLOYEE') {
             return (
