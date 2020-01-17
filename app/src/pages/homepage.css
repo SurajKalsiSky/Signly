@@ -26,9 +26,6 @@
   justify-content: center;
 }
   
-.Homepage-btn {
-  background: transparent;
-  cursor: pointer;
-  outline: none;
-  font-size: calc(1px + 2vmin);
+.Employee-buttons {
+  margin-top: 2em;
  }
