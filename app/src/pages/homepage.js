@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import WelcomePage from './welcomepage';
+import SignInPage from './signinpage';
+import SignUpPage from './signuppage';
+import EmployeeHomePage from './employeehomepage';
 import './homepage.css';
 
 export default class Homepage extends Component {
     state = {
+        page: 0,
+        signInOrUp: null,
         loggedInAs: null,
         message: "hi"
     }
@@ -23,37 +28,47 @@ export default class Homepage extends Component {
           )
       }
 
-    handleSignIn = (userType) => {
-        console.log("TCL: Navbar -> handleEmployeeSignIn -> userType", userType)
+    goToSignInOrUpPage = (signInOrUp) => {
         this.setState({
-            loggedInAs: userType
+            page: 1,
+            signInOrUp,
         })
     }
 
+    handleSignIn = (userType) => {
+        console.log("userType", userType);
+        this.setState({
+            page: 2,
+            loggedInAs: userType,
+        })
+    }
+
+    goBackAPage = () => {
+        this.setState({
+            page: this.state.page - 1,
+        })
+    }
+
+
     render() {
-        if (!this.state.loggedInAs) {
-            return (
-                <WelcomePage handleSignIn={this.handleSignIn} />
-            );
-        } else if (this.state.loggedInAs === 'EMPLOYEE') {
-            return (
-                <div className="Homepage">
-                    <header className="Homepage-welcome-message">
-                        <p> Employee booking page </p>
-                        <p className="Homepage-second-message"> Please make your booking </p>
-                        <p className="Homepage-second-message"> {this.state.message} </p>
-                    </header>
-                </div>
-            )
-        } else {
-            return (
-                <div className="Homepage">
-                    <header className="Homepage-welcome-message">
-                        <p> Interpreter page </p>
-                        <p className="Homepage-second-message"> Please select an available slot </p>
-                    </header>
-                </div>
-            )
+        switch (this.state.page) {
+            case 0:
+                return <WelcomePage goToSignInOrUpPage={this.goToSignInOrUpPage} />;
+            case 1:
+                if (this.state.signInOrUp === "SIGN IN") {
+                    return <SignInPage handleSignIn={this.handleSignIn} goBackAPage={this.goBackAPage} />
+                } else {
+                    return <SignUpPage handleSignIn={this.handleSignIn} goBackAPage={this.goBackAPage} />
+                }
+            case 2:
+                if (this.state.loggedInAs === "EMPLOYEE") {
+                    return <EmployeeHomePage goBackAPage={this.goBackAPage} />
+                } else {
+                    // return <InterpreterHomePage goBackAPage={this.goBackAPage} />
+                }
+                break;
+            default:
+                // error message
         }
     }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'semantic-ui-react'
 import './homepage.css';
 
 export default class WelcomePage extends Component {
@@ -7,15 +8,11 @@ export default class WelcomePage extends Component {
             <div className="Homepage">
                 <header className="Homepage-welcome-message">
                     <p> Welcome to the Signly booking app </p>
-                    <p className="Homepage-second-message"> Who are you? </p>
+                    <p className="Homepage-second-message"> Please sign in to continue </p>
                 </header>
                 <div className="Homepage-buttons">
-                    <button type="button" className="Homepage-btn" onClick={() => this.props.handleSignIn('EMPLOYEE')}>
-                        Employee
-                    </button>
-                    <button type="button" className="Homepage-btn" onClick={() => this.props.handleSignIn('INTERPRETER')}>
-                        Interpreter
-                    </button>
+                    <Button basic color='teal' size='big' compact onClick={() => this.props.goToSignInOrUpPage("SIGN IN")}>Sign in</Button>
+                    <Button basic color='teal' size='big' compact onClick={() => this.props.goToSignInOrUpPage("SIGN UP")}>Sign up</Button>
                 </div>
             </div>
         );
