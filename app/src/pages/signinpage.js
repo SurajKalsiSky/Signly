@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BackButton from '../components/backbutton';
-import { Button } from 'semantic-ui-react'
+import SignInForm from '../components/signinform';
 import './homepage.css';
 
 export default class SignInPage extends Component {
@@ -13,10 +13,8 @@ export default class SignInPage extends Component {
                         <p> Sign in page </p>
                         <p className="Homepage-second-message"> Please enter your username </p>
                     </header>
-                    {/* text box */}
-                    <div className="Homepage-buttons">
-                        <Button color='teal' size='large' compact onClick={() => this.props.handleSignIn('EMPLOYEE')}>Sign in</Button>
-                    </div>
+
+                    <SignInForm handleSignIn={this.props.handleSignIn} />
                 </div>
             </div>
         );

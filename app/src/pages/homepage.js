@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WelcomePage from './welcomepage';
 import SignInPage from './signinpage';
 import SignUpPage from './signuppage';
-import EmployeeHomePage from './employeehomepage';
+import EmployeeViewBookings from './employeehomepage';
 import './homepage.css';
 
 export default class Homepage extends Component {
@@ -36,7 +36,6 @@ export default class Homepage extends Component {
     }
 
     handleSignIn = (userType) => {
-        console.log("userType", userType);
         this.setState({
             page: 2,
             loggedInAs: userType,
@@ -62,9 +61,9 @@ export default class Homepage extends Component {
                 }
             case 2:
                 if (this.state.loggedInAs === "EMPLOYEE") {
-                    return <EmployeeHomePage goBackAPage={this.goBackAPage} />
+                    return <EmployeeViewBookings goBackAPage={this.goBackAPage} />
                 } else {
-                    // return <InterpreterHomePage goBackAPage={this.goBackAPage} />
+                    // return <InterpreterViewBookings goBackAPage={this.goBackAPage} />
                 }
                 break;
             default:
