@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateBookingResponse {
+public class BookingInfoResponse {
     BookingInfo bookingInfo;
+
+    //TODO: manipulate bookingInfo into json response
 }
