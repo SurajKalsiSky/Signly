@@ -20,7 +20,7 @@ export default class Homepage extends Component {
                 }
             case 2:
                 if (this.props.loggedInAs === "EMPLOYEE") {
-                    return <EmployeeViewBookings goToMakeBookingPage={this.props.goToMakeBookingPage} goBackAPage={this.props.goBackAPage} />
+                    return <EmployeeViewBookings goToPage={this.props.goToPage} goBackAPage={this.props.goBackAPage} />
                 } else {
                     // return <InterpreterViewBookings goBackAPage={this.props.goBackAPage} />
                 }

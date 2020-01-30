@@ -9,7 +9,7 @@ export default class EmployeeViewBookings extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            tableData: true
+            tableData: null
         }
     }
 
@@ -24,7 +24,7 @@ export default class EmployeeViewBookings extends Component {
                         <p> Employee view bookings page </p>
                         <div>
                             <Button disabled content='View all bookings' basic color='teal' size='small' />
-                            <Button basic color='teal' size='small' onClick={() => this.props.goToMakeBookingPage()}>Make new booking</Button>
+                            <Button basic color='teal' size='small' onClick={() => this.props.goToPage(3)}>Make new booking</Button>
                         </div>
                         
                         {this.state.tableData ? <EmployeeTable tableData={employeeBookingsMock} /> : this.noBookings()}
