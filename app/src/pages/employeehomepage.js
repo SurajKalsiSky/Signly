@@ -13,6 +13,12 @@ export default class EmployeeViewBookings extends Component {
         }
     }
 
+    componentDidMount() {
+        fetch('http://localhost:8080/bookings')
+            .then(response => response.json())
+            .then(json => Array.isArray(json) && this.setState({tableData: json}))
+    }
+
     noBookings = () => (<p className="no-bookings"> You have no bookings </p>)
 
     render() {
@@ -27,7 +33,7 @@ export default class EmployeeViewBookings extends Component {
                             <Button basic color='teal' size='small' onClick={() => this.props.goToPage(3)}>Make new booking</Button>
                         </div>
                         
-                        {this.state.tableData ? <EmployeeTable tableData={employeeBookingsMock} /> : this.noBookings()}
+                        {this.state.tableData ? <EmployeeTable tableData={this.state.tableData} /> : this.noBookings()}
                     </header>
                 </div>
             </div>

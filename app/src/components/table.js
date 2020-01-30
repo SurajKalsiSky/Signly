@@ -21,7 +21,6 @@ const createRow = (rowData = {}) => {
 
 export default class EmployeeTable extends PureComponent {
   render() {
-    console.log(this.props.tableData)
     return (
       <div className="table">
         <Table compact size='small'>
