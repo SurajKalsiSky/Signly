@@ -7,6 +7,7 @@ export default class App extends Component {
     page: 0,
     signInOrUp: null,
     loggedInAs: null,
+    username: null,
   }
 
   goToSignInOrUpPage = (signInOrUp) => {
@@ -16,10 +17,12 @@ export default class App extends Component {
       })
   }
 
-  handleSignIn = (userType) => {
+  handleSignIn = (userType, username) => {
+    console.log(username)
       this.setState({
           page: 2,
           loggedInAs: userType,
+          username,
       })
   }
 
@@ -44,6 +47,7 @@ export default class App extends Component {
         />
         <Homepage
           page={this.state.page}
+          username={this.state.username}
           signInOrUp={this.state.signInOrUp}
           loggedInAs={this.state.loggedInAs}
           goBackAPage={this.goBackAPage}

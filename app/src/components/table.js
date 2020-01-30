@@ -39,7 +39,10 @@ export default class EmployeeTable extends PureComponent {
           <Table.Body>
           {
             this.props.tableData && this.props.tableData.map((rowData) => {
-              return (createRow(rowData));
+              if (this.props.username == rowData.emailAddress) {
+                return (createRow(rowData));
+              }
+              return null
             })
           }
           </Table.Body>

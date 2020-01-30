@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
 import BackButton from '../components/backbutton';
-import EmployeeTable from '../components/table';
 import { Button, Form  } from 'semantic-ui-react';
 import './homepage.css';
 const employeeBookingsMock = require('../mocks/employeeBookings.json');
 
 export default class MakeBookingPage extends Component {
-    state = {}
+    state = {
+        submitData: {
+            "firstName":this.props.username,
+            "lastName":"Sharma",
+            "company":"Sky",
+            "bookingName": "Signly second booking",
+            "emailAddress": this.props.username,
+            "startTime":"randomStartTime",
+            "endTime":"randomEndTime"
+        }
+    }
 
-    handleChange = (e, { value }) => this.setState({ value })
+    onSubmit = () => {
+        fetch('http://localhost:8080/bookings', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state.submitData)
+        }).then(res => console.log(res.status))
+        .catch(this.props.goBackAPage())
+    }
 
     render() {
         const { value } = this.state
@@ -27,11 +45,10 @@ export default class MakeBookingPage extends Component {
                             <Form.Input label='Duration' placeholder='HH:MM' />
                         </Form.Group>   
                         <Form.Input fluid label='Company' placeholder='Company' />
-                        <Form.Input fluid label='Email Address' placeholder='Email' />
                     </Form>
 
                     <div style={{marginTop: '10px'}}>
-                        <Button floated='right' color='teal' onClick={() => this.props.goBackAPage()}>
+                        <Button floated='right' color='teal' onClick={() => this.onSubmit()}>
                             Submit
                         </Button>
                     </div>

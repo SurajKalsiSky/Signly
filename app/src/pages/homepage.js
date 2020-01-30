@@ -20,13 +20,13 @@ export default class Homepage extends Component {
                 }
             case 2:
                 if (this.props.loggedInAs === "EMPLOYEE") {
-                    return <EmployeeViewBookings goToPage={this.props.goToPage} goBackAPage={this.props.goBackAPage} />
+                    return <EmployeeViewBookings goToPage={this.props.goToPage} goBackAPage={this.props.goBackAPage} username={this.props.username} />
                 } else {
                     // return <InterpreterViewBookings goBackAPage={this.props.goBackAPage} />
                 }
                 break;
             case 3:
-                return <MakeBookingPage goBackAPage={this.props.goBackAPage} />
+                return <MakeBookingPage goBackAPage={this.props.goBackAPage} username={this.props.username} />
             default:
                 // error message
         }

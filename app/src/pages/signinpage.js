@@ -11,7 +11,7 @@ export default class SignInPage extends Component {
                 <div className="Homepage">
                     <header className="Homepage-welcome-message">
                         <p> Sign in page </p>
-                        <p className="Homepage-second-message"> Please enter your username </p>
+                        <p className="Homepage-second-message"> Please enter your email address </p>
                     </header>
 
                     <SignInForm handleSignIn={this.props.handleSignIn} />

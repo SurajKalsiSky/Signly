@@ -12,7 +12,7 @@ export default class WelcomePage extends Component {
                 </header>
                 <div className="Homepage-buttons">
                     <Button basic color='teal' size='big' compact onClick={() => this.props.goToSignInOrUpPage("SIGN IN")}>Sign in</Button>
-                    <Button basic color='teal' size='big' compact onClick={() => this.props.goToSignInOrUpPage("SIGN UP")}>Sign up</Button>
+                    <Button basic color='teal' size='big' compact>Sign up</Button>
                 </div>
             </div>
         );

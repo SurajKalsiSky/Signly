@@ -32,8 +32,8 @@ export default class EmployeeViewBookings extends Component {
                             <Button disabled content='View all bookings' basic color='teal' size='small' />
                             <Button basic color='teal' size='small' onClick={() => this.props.goToPage(3)}>Make new booking</Button>
                         </div>
-                        
-                        {this.state.tableData ? <EmployeeTable tableData={this.state.tableData} /> : this.noBookings()}
+                        <h4>Logged in as: {this.props.username}</h4>
+                        {this.state.tableData ? <EmployeeTable tableData={this.state.tableData} username={this.props.username} /> : this.noBookings()}
                     </header>
                 </div>
             </div>
