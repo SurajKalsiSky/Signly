@@ -1,7 +1,5 @@
 package com.bucks.signly.api.resources.booking;
 
-import com.bucks.signly.api.database.BookingRepository;
-import com.bucks.signly.api.database.models.Booking;
 import com.bucks.signly.api.domain.BookingInfo;
 import com.bucks.signly.api.domain.BookingState;
 import com.bucks.signly.api.domain.UserInfo;
