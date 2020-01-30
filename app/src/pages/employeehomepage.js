@@ -10,6 +10,7 @@ export default class EmployeeViewBookings extends Component {
         super(props)
         this.state = {
             tableData: true
+<<<<<<< HEAD
         }
     }
 
@@ -27,28 +28,17 @@ export default class EmployeeViewBookings extends Component {
               { id: 3, name: 'Saad', age: 16, email: 'saad@email.com' },
               { id: 4, name: 'Asad', age: 25, email: 'asad@email.com' }
            ]
+=======
+>>>>>>> f672357... wip
         }
-     }
-    renderTableData() {
-        return this.state.students.map((student, index) => {
-           const { id, name, age, email } = student
-           return (
-              <tr key={id}>
-                 <td>{id}</td>
-                 <td>{name}</td>
-                 <td>{age}</td>
-                 <td>{email}</td>
-              </tr>
-           )
-        })
-     }
-    renderTableHeader() {
-        let header = Object.keys(this.state.students[0])
-        return header.map((key, index) => {
-           return <th key={index}>{key.toUpperCase()}</th>
-        })
     }
+<<<<<<< HEAD
 >>>>>>> 573f513... wip
+=======
+
+    noBookings = () => (<p className="no-bookings"> You have no bookings </p>)
+
+>>>>>>> f672357... wip
     render() {
         return (
             <div>
@@ -58,6 +48,7 @@ export default class EmployeeViewBookings extends Component {
                         <p> Employee view bookings page </p>
                         <div>
                             <Button disabled content='View all bookings' basic color='teal' size='small' />
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <Button basic color='teal' size='small' onClick={() => this.props.goToMakeBookingPage()}>Make new booking</Button>
                         </div>
@@ -73,6 +64,12 @@ export default class EmployeeViewBookings extends Component {
                             </tbody>
                         </table>
 >>>>>>> 573f513... wip
+=======
+                            <Button basic color='teal' size='small' onClick={() => this.props.goToMakeBookingPage()}>Make new booking</Button>
+                        </div>
+                        
+                        {this.state.tableData ? <EmployeeTable tableData={employeeBookingsMock} /> : this.noBookings()}
+>>>>>>> f672357... wip
                     </header>
                 </div>
             </div>
