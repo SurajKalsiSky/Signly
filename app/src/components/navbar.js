@@ -5,13 +5,7 @@ import './navbar.css';
 import Logo from '../assets/logo2.png';
 
 export default class Navbar extends Component {
-    state = { activeItem: 'Your Bookings' }
-
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
     render() {
-        const { activeItem } = this.state
-
         return (
         <nav className="navbar">
             <div className="nav-center">
@@ -19,32 +13,32 @@ export default class Navbar extends Component {
                     <img src={Logo} alt="Signly" className="nav-logo" />
                 </div>
                 <ul className={"nav-links show-nav"}>
+                { this.props.page > 1 ?
                     <div>
                         <Menu inverted secondary>
                             <Menu.Item
                                 name='Your Bookings'
-                                active={activeItem === 'Your Bookings'}
-                                onClick={this.handleItemClick}
+                                active={this.props.page === 2}
+                                onClick={() => this.props.goToPage(2)}
                             />
                             <Menu.Item
                                 name='Create Booking Request'
-                                active={activeItem === 'Create Booking Request'}
-                                onClick={this.handleItemClick}
+                                active={this.props.page === 3}
+                                onClick={() => this.props.goToPage(3)}
                             />
                             <Menu.Item
                                 name='Settings'
-                                active={activeItem === 'Settings'}
-                                onClick={this.handleItemClick}
+                                active={this.props.page === 4}
+                                onClick={() => this.props.goToPage(4)}
                             />
-                            <Menu.Menu position='right'>
-                                <Menu.Item
+                            <Menu.Item
                                 name='logout'
-                                active={activeItem === 'logout'}
-                                onClick={this.handleItemClick}
-                                />
-                            </Menu.Menu>
+                                active={this.props.page === 0}
+                                onClick={() => this.props.goToPage(0)}
+                            />
                         </Menu>
                     </div>
+                : null}
                 </ul>
             </div>
         </nav>
