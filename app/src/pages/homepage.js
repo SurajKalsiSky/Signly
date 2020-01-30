@@ -3,6 +3,7 @@ import WelcomePage from './welcomepage';
 import SignInPage from './signinpage';
 import SignUpPage from './signuppage';
 import EmployeeViewBookings from './employeehomepage';
+import MakeBookingPage from './makebookingpage';
 import './homepage.css';
 
 export default class Homepage extends Component {
@@ -42,6 +43,12 @@ export default class Homepage extends Component {
         })
     }
 
+    goToMakeBookingPage = () => {
+        this.setState({
+            page: 3,
+        })
+    }
+
     goBackAPage = () => {
         this.setState({
             page: this.state.page - 1,
@@ -61,11 +68,13 @@ export default class Homepage extends Component {
                 }
             case 2:
                 if (this.state.loggedInAs === "EMPLOYEE") {
-                    return <EmployeeViewBookings goBackAPage={this.goBackAPage} />
+                    return <EmployeeViewBookings goToMakeBookingPage={this.goToMakeBookingPage} goBackAPage={this.goBackAPage} />
                 } else {
                     // return <InterpreterViewBookings goBackAPage={this.goBackAPage} />
                 }
                 break;
+            case 3:
+                return <MakeBookingPage goBackAPage={this.goBackAPage} />
             default:
                 // error message
         }
