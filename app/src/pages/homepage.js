@@ -3,10 +3,7 @@ import WelcomePage from './welcomepage';
 import SignInPage from './signinpage';
 import SignUpPage from './signuppage';
 import EmployeeViewBookings from './employeehomepage';
-<<<<<<< HEAD
 import MakeBookingPage from './makebookingpage';
-=======
->>>>>>> 573f513... wip
 import './homepage.css';
 
 export default class Homepage extends Component {
@@ -71,11 +68,7 @@ export default class Homepage extends Component {
                 }
             case 2:
                 if (this.state.loggedInAs === "EMPLOYEE") {
-<<<<<<< HEAD
                     return <EmployeeViewBookings goToMakeBookingPage={this.goToMakeBookingPage} goBackAPage={this.goBackAPage} />
-=======
-                    return <EmployeeViewBookings goBackAPage={this.goBackAPage} />
->>>>>>> 573f513... wip
                 } else {
                     // return <InterpreterViewBookings goBackAPage={this.goBackAPage} />
                 }
