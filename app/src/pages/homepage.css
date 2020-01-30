@@ -79,3 +79,12 @@
   background-color: #4CAF50;
   color: white;
 }
+
+.Make-booking-page {
+  background-color: #e9e9e9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
