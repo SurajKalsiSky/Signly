@@ -11,12 +11,16 @@
 .Homepage-welcome-message {
   color: #1DACB0;
   font-size: calc(20px + 2vmin);
-  margin-bottom: 16%;
+  margin-top: 0em;
 }
+
+/* .Bookings-view {
+  margin-bottom: 30%;
+} */
 
 .Homepage-second-message {
   font-size: calc(12px + 2vmin);
-  margin-top: 0px;
+  margin-bottom: 7em;
 }
 
 .Homepage-buttons {
@@ -24,8 +28,54 @@
   flex-direction: row;
   align-items: normal;
   justify-content: center;
+  margin-top: 7em;
 }
   
 .Employee-buttons {
   margin-top: 2em;
- }
+}
+  
+.no-bookings {
+  margin-top: 1em;
+  font-size: calc(28px);
+  color: rgb(206, 92, 92);
+}
+
+#title {
+  text-align: center;
+  font-family: arial, sans-serif;
+}
+
+#BookingTable {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em;
+}
+
+#BookingTable td, #BookingTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#BookingTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#BookingTable tr:hover {background-color: #ddd;}
+
+#BookingTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.Make-booking-page {
+  background-color: #e9e9e9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

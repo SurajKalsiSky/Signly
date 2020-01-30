@@ -3,7 +3,7 @@ import BackButton from '../components/backbutton';
 import { Button } from 'semantic-ui-react'
 import './homepage.css';
 
-export default class SignInPage extends Component {
+export default class SignUpPage extends Component {
     render() {
         return (
             <div>
