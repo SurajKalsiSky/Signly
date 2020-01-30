@@ -11,5 +11,6 @@ public class UserInfo {
     String firstName;
     String lastName;
     String company;
+    String emailAddress;
     UserType userType;
 }

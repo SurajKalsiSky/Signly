@@ -12,7 +12,10 @@ public class RequestInputData {
     String lastName;
     String company;
     String bookingName;
-    //todo: change below into date objects
+    String emailAddress;
+
     String startTime;
     String endTime;
+
+
 }

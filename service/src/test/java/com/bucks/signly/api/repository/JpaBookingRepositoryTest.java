@@ -1,7 +1,7 @@
 package com.bucks.signly.api.repository;
 
-import com.bucks.signly.api.database.BookingRepository;
-import com.bucks.signly.api.database.models.Booking;
+import com.bucks.signly.api.database.jpa.JpaBookingRepository;
+import com.bucks.signly.api.database.jpa.models.Booking;
 import com.bucks.signly.api.domain.BookingState;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,13 +15,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class BookingRepositoryTest {
+public class JpaBookingRepositoryTest {
 
     @Autowired
     private TestEntityManager entityManager;
 
     @Autowired
-    private BookingRepository bookingRepository;
+    private JpaBookingRepository bookingRepository;
 
     @Test
     public void verifyingInjectedComponentsAreNotNull(){
@@ -37,7 +37,9 @@ public class BookingRepositoryTest {
                     .timeFrom(LocalDateTime.of(2020, 03, 14, 12, 30))
                     .timeTo(LocalDateTime.of(2020, 03, 14, 14, 30))
                     .companyName("Barclays")
-                    .fullName("Ciara Harris")
+                    .firstName("Ciara")
+                    .lastName("Random")
+                    .emailAddress("random")
                     .state(BookingState.PENDING)
                 .build();
 
@@ -60,7 +62,9 @@ public class BookingRepositoryTest {
                     .timeFrom(LocalDateTime.of(2020, 03, 14, 12, 30))
                     .timeTo(LocalDateTime.of(2020, 03, 14, 14, 30))
                     .companyName("HSBC")
-                    .fullName("James Lowe")
+                    .firstName("James")
+                    .lastName("Lowe")
+                .emailAddress("random")
                     .state(BookingState.ACCEPTED)
                 .build();
 
@@ -78,14 +82,16 @@ public class BookingRepositoryTest {
     }
 
     @Test
-    public void findBookingByCompanyName() {
+    public void findBookingByEmailAddress() {
         //Given
         Booking booking1 = Booking.builder()
                 .bookingName("Wealth Management")
                 .timeFrom(LocalDateTime.of(2020, 03, 14, 12, 30))
                 .timeTo(LocalDateTime.of(2020, 03, 14, 14, 30))
                 .companyName("Barclays")
-                .fullName("Ciara Harris")
+                .firstName("Ciara")
+                .lastName("Harris")
+                .emailAddress("ciara.harris@gmail.com")
                 .state(BookingState.PENDING)
                 .build();
 
@@ -94,7 +100,9 @@ public class BookingRepositoryTest {
                 .timeFrom(LocalDateTime.of(2020, 02, 11, 9, 30))
                 .timeTo(LocalDateTime.of(2020, 02, 11, 10, 30))
                 .companyName("Natwest")
-                .fullName("Tom Hardy")
+                .firstName("Tom")
+                .lastName("Hardy")
+                .emailAddress("tom.hardy@gmail.com")
                 .state(BookingState.ACCEPTED)
                 .build();
 
@@ -103,14 +111,15 @@ public class BookingRepositoryTest {
         entityManager.flush();
 
         //When
-        Booking result = bookingRepository.findByCompanyName("Barclays");
+        Booking result = bookingRepository.findByEmailAddress("ciara.harris@gmail.com");
 
         //Then
         assertThat(result.getBookingName()).isEqualTo("Wealth Management");
-        assertThat(result.getFullName()).isEqualTo("Ciara Harris");
+        assertThat(result.getFirstName()).isEqualTo("Ciara");
         assertThat(result.getState()).isEqualTo(BookingState.PENDING);
 
     }
+
 
     @Test
     public void findAll() {
@@ -120,7 +129,9 @@ public class BookingRepositoryTest {
                 .timeFrom(LocalDateTime.of(2020, 03, 14, 12, 30))
                 .timeTo(LocalDateTime.of(2020, 03, 14, 14, 30))
                 .companyName("Barclays")
-                .fullName("Ciara Harris")
+                .firstName("Ciara")
+                .lastName("Harris")
+                .emailAddress("random")
                 .state(BookingState.PENDING)
                 .build();
 
@@ -129,7 +140,9 @@ public class BookingRepositoryTest {
                 .timeFrom(LocalDateTime.of(2020, 02, 11, 9, 30))
                 .timeTo(LocalDateTime.of(2020, 02, 11, 10, 30))
                 .companyName("Natwest")
-                .fullName("Tom Hardy")
+                .firstName("Tom")
+                .lastName("Hardy")
+                .emailAddress("random")
                 .state(BookingState.ACCEPTED)
                 .build();
 

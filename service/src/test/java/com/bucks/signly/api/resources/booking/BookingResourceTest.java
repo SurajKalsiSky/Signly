@@ -34,6 +34,7 @@ public class BookingResourceTest {
         requestBodyData.put("firstName","randomFirstName123");
         requestBodyData.put("lastName","randomLastName123");
         requestBodyData.put("company","randomCompany");
+        requestBodyData.put("emailAddress","randomEmailAddress");
         requestBodyData.put("startTime","randomStartTime");
         requestBodyData.put("endTime","randomEndTime");
 
@@ -47,19 +48,18 @@ public class BookingResourceTest {
     public void bookingEndpointReturns201CreatedStatusCodeAndResponseBody() throws Exception {
 
         Map<String, String> requestBodyData = new HashMap<>();
+        requestBodyData.put("bookingName", "randomBookingName");
         requestBodyData.put("firstName","randomFirstName123");
         requestBodyData.put("lastName","randomLastName123");
         requestBodyData.put("company","randomCompany");
+        requestBodyData.put("emailAddress","randomEmailAddress");
         requestBodyData.put("startTime","randomStartTime");
         requestBodyData.put("endTime","randomEndTime");
-
-        String expectedResponseBody = "{\"bookingInfo\":{\"userInfo\":{\"firstName\":\"randomFirstName123\",\"lastName\":\"randomLastName123\",\"company\":\"randomCompany\",\"userType\":\"BOOKER\"},\"startTime\":\"randomStartTime\",\"endTime\":\"randomEndTime\",\"bookingState\":\"PENDING\"}}";
 
         mvc.perform(post("/bookings")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(requestBodyData)))
-                .andExpect(status().isCreated())
-                .andExpect(content().string(expectedResponseBody));
+                .andExpect(status().isCreated());
     }
 
     @Test

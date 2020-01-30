@@ -1,4 +1,4 @@
-package com.bucks.signly.api.database.models;
+package com.bucks.signly.api.database.jpa.models;
 
 import com.bucks.signly.api.domain.BookingState;
 import lombok.AllArgsConstructor;
@@ -43,8 +43,16 @@ public class Booking {
     private String companyName;
 
     @NotNull
-    @Column(name = "full_name")
-    private String fullName;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @NotNull
+    @Column(name = "last_name")
+    private String lastName;
+
+    @NotNull
+    @Column(name = "email_address")
+    private String emailAddress;
 
     @NotNull
     @Column(name = "state")

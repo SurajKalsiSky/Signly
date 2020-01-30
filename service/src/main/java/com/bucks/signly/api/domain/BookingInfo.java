@@ -9,17 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BookingInfo {
     UserInfo userInfo;
+    String bookingName;
     String startTime;
     String endTime;
     BookingState bookingState;
 
-    @Override
-    public String toString() {
-        return "BookingInfo{" +
-                "userInfo=" + userInfo +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
-                ", bookingState=" + bookingState +
-                '}';
-    }
 }
