@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import BackButton from '../components/backbutton';
-import EmployeeTable from '../components/table';
+import InterpreterTable from '../components/interpretertable';
 import { Button } from 'semantic-ui-react'
 import './homepage.css';
 const employeeBookingsMock = require('../mocks/employeeBookings.json');
 
-export default class EmployeeViewBookings extends Component {
+export default class InterpreterViewBookings extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -27,9 +27,9 @@ export default class EmployeeViewBookings extends Component {
                 <BackButton goBackAPage={this.props.goBackAPage} />
                 <div className="Homepage">
                     <header className="Homepage-welcome-message Bookings-view">
-                        <p> Employee view bookings page </p>
+                        <p> Interpreter page </p>
                         <h4>Logged in as: {this.props.username}</h4>
-                        {this.state.tableData ? <EmployeeTable tableData={this.state.tableData} username={this.props.username} /> : this.noBookings()}
+                        {this.state.tableData ? <InterpreterTable tableData={this.state.tableData} username={this.props.username} /> : this.noBookings()}
                     </header>
                 </div>
             </div>

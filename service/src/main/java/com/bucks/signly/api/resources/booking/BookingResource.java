@@ -18,7 +18,7 @@ public class BookingResource {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/bookings", consumes = "application/json")
-    public void createBooking(@RequestBody RequestInputData requestBody) {
+    public void createBooking(@RequestBody BookerRequestInputData requestBody) {
         UserInfo userInfo = new UserInfo(requestBody.firstName, requestBody.lastName, requestBody.company, requestBody.emailAddress, UserType.BOOKER);
         BookingInfo bookingInfo = new BookingInfo(userInfo, requestBody.bookingName, requestBody.startTime, requestBody.endTime, BookingState.PENDING);
         bookingService.createBooking(bookingInfo);
@@ -26,10 +26,9 @@ public class BookingResource {
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping(value="/bookings/{id}", consumes = "application/json")
-    public void updateBooking(@PathVariable int id, @RequestBody RequestInputData requestBody) throws Exception {
-        UserInfo userInfo = new UserInfo(requestBody.firstName, requestBody.lastName, requestBody.company, requestBody.emailAddress, UserType.BOOKER);
-        BookingInfo bookingInfo = new BookingInfo(userInfo, requestBody.bookingName, requestBody.startTime, requestBody.endTime, BookingState.PENDING);
-        bookingService.updateBooking(id, bookingInfo);
+    public void updateBooking(@PathVariable int id, @RequestBody InterpreterRequestInputData requestBody) throws Exception {
+        String interpreterFullName = requestBody.firstName + " " + requestBody.lastName;
+        bookingService.updateBooking(id, interpreterFullName);
     }
 
     @ResponseStatus(HttpStatus.OK)
