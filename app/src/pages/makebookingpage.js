@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BackButton from '../components/backbutton';
-import { Button, Form  } from 'semantic-ui-react';
+import { Button, Form, Table, Header, Segment, Portal  } from 'semantic-ui-react';
 import './homepage.css';
 const employeeBookingsMock = require('../mocks/employeeBookings.json');
 
@@ -27,40 +27,22 @@ export default class MakeBookingPage extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(submitData)
-        }).then(res => console.log(res.status))
-        .catch(this.props.goBackAPage())
+        }).then(res => this.handleOpen("Success"))
+        .catch(this.handleOpen("Failure"))
     }
+
+    state = { open: false }
+
+    handleClose = () => this.setState({ open: false })
+    handleOpen = (status) => this.setState({ open: true, status })
 
     handleChange = (event, fieldName) => {
         this.setState({[fieldName]: event.target.value});
     }
 
-    handleFirstNameChange = (event) => {
-        this.setState({firstName: event.target.value});
-    }
-
-    handleLastNameChange(event){
-        this.setState({lastName: event.target.value});
-    }
-
-    handleDateChange(event){
-        this.setState({date: event.target.value});
-    }
-
-    handleStartTimeChange(event){
-        this.setState({startTime: event.target.value});
-    }
-
-    handleEndTimeChange(event){
-        this.setState({endTime: event.target.value});
-    }
-
-    handleCompanyChange(event){
-        this.setState({company: event.target.value});
-    }
-
     render() {
         const { value } = this.state
+        const { open, status } = this.state
         return (
             <div>
                 <div className="Make-booking-page">
@@ -97,6 +79,26 @@ export default class MakeBookingPage extends Component {
                             Submit
                         </Button>
                     </div>
+
+                    <Portal onClose={this.handleClose} open={open}>
+                        <Segment
+                        style={{
+                            left: '40%',
+                            position: 'fixed',
+                            top: '50%',
+                            zIndex: 1000,
+                        }}
+                        >
+                        <Header>{status}</Header>
+                        <p>To close, simply click the close button or click away</p>
+
+                        <Button
+                            content='Close Portal'
+                            positve
+                            onClick={this.handleClose}
+                        />
+                        </Segment>
+                    </Portal>
                 </div>
             </div>    
         )
