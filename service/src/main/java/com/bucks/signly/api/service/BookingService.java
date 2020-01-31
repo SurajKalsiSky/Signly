@@ -20,7 +20,7 @@ public class BookingService {
     JpaBookingRepository bookingRepository;
 
     @Autowired
-    ObjectMapper objectMapper;
+    ObjectMapper jsonMapper;
 
     public void createBooking(BookingInfo bookingInfo) {
         Booking newBooking = Booking.builder()
@@ -36,16 +36,12 @@ public class BookingService {
         bookingRepository.save(newBooking);
     }
 
-    public void updateBooking(int id, BookingInfo bookingInfo) throws Exception {
+    public void updateBooking(int id, String interpreter) throws Exception {
         Optional<Booking> bookingOptional = bookingRepository.findById(id);
         if (bookingOptional.isPresent()) {
             Booking booking = bookingOptional.get();
-            booking.setCompanyName(bookingInfo.getUserInfo().getCompany());
-            booking.setBookingName(bookingInfo.getBookingName());
-            booking.setFirstName(bookingInfo.getUserInfo().getFirstName());
-            booking.setLastName(bookingInfo.getUserInfo().getLastName());
-            booking.setEmailAddress(bookingInfo.getUserInfo().getEmailAddress());
-            booking.setState(BookingState.PENDING);
+            booking.setInterpreter(interpreter);
+            booking.setState(BookingState.ACCEPTED);
             booking.setTimeFrom(LocalDateTime.now());
             booking.setTimeTo(LocalDateTime.now());
             bookingRepository.save(booking);
@@ -55,10 +51,11 @@ public class BookingService {
         }
     }
 
+
     public String getBooking(int id) throws Exception {
         Optional<Booking> booking = bookingRepository.findById(id);
         if (booking.isPresent()) {
-            return objectMapper.writeValueAsString(booking);
+            return jsonMapper.writeValueAsString(booking);
         }
         //TODO: map exception with status code
         throw new Exception("Could not get booking");
@@ -66,6 +63,6 @@ public class BookingService {
 
     public String getAllBookings() throws JsonProcessingException {
         List<Booking> allBookings = (List<Booking>) bookingRepository.findAll();
-        return objectMapper.writeValueAsString(allBookings);
+        return jsonMapper.writeValueAsString(allBookings);
     }
 }
