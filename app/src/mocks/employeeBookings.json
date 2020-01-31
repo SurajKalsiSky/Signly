@@ -6,6 +6,7 @@
         "timeTo": "2020-01-30T16:52:49.669",
         "companyName": "Sky",
         "firstName": "Suraj",
+        "emailAddress": "sss",
         "lastName": "Kalsi",
         "state": "Booked"
     },
@@ -15,6 +16,7 @@
         "timeFrom": "2020-01-30T16:53:01.486",
         "timeTo": "2020-01-30T16:53:01.486",
         "companyName": "Sky",
+        "emailAddress": "sss",
         "firstName": "Charlene",
         "lastName": "Bandi",
         "state": "Open"
