@@ -42,7 +42,10 @@ export default class InterpreterTable extends Component {
   state = { open: false }
 
   handleClose = () => this.setState({ open: false })
-  handleOpen = () => this.setState({ open: true })
+  handleOpen = () => {
+    this.props.updateTable();
+    this.setState({ open: true })
+  }
 
   render() {
     const { open } = this.state
@@ -79,13 +82,12 @@ export default class InterpreterTable extends Component {
                 zIndex: 1000,
               }}
             >
-              <Header>This is a controlled portal</Header>
-              <p>Portals have tons of great callback functions to hook into.</p>
-              <p>To close, simply click the close button or click away</p>
+              <Header>Success!</Header>
+              <p>You have successfully accepted the booking</p>
 
               <Button
-                content='Close Portal'
-                negative
+                content='Close'
+                positive
                 onClick={this.handleClose}
               />
             </Segment>

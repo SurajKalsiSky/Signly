@@ -14,6 +14,10 @@ export default class InterpreterViewBookings extends Component {
     }
 
     componentDidMount() {
+        this.updateTable()
+    }
+
+    updateTable = () => {
         fetch('http://localhost:8080/bookings')
             .then(response => response.json())
             .then(json => Array.isArray(json) && this.setState({tableData: json}))
@@ -29,7 +33,7 @@ export default class InterpreterViewBookings extends Component {
                     <header className="Homepage-welcome-message Bookings-view">
                         <p> Interpreter page </p>
                         <h4>Logged in as: {this.props.username}</h4>
-                        {this.state.tableData ? <InterpreterTable tableData={this.state.tableData} username={this.props.username} /> : this.noBookings()}
+                        {this.state.tableData ? <InterpreterTable tableData={this.state.tableData} username={this.props.username} updateTable={this.updateTable} /> : this.noBookings()}
                     </header>
                 </div>
             </div>
