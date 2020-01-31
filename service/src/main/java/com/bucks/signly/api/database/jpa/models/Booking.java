@@ -58,4 +58,7 @@ public class Booking {
     @Column(name = "state")
     private BookingState state;
 
+    @Column(name = "interpreter")
+    private String interpreter;
+
 }

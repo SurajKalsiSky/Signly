@@ -7,15 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestInputData {
+public class BookerRequestInputData {
     String firstName;
     String lastName;
     String company;
     String bookingName;
     String emailAddress;
-
     String startTime;
     String endTime;
-
 
 }
