@@ -3,6 +3,7 @@ import WelcomePage from './welcomepage';
 import SignInPage from './signinpage';
 import SignUpPage from './signuppage';
 import EmployeeViewBookings from './employeehomepage';
+import InterpreterViewBookings from './interpreterhomepage';
 import MakeBookingPage from './makebookingpage';
 import './homepage.css';
 
@@ -22,9 +23,8 @@ export default class Homepage extends Component {
                 if (this.props.loggedInAs === "EMPLOYEE") {
                     return <EmployeeViewBookings goToPage={this.props.goToPage} goBackAPage={this.props.goBackAPage} username={this.props.username} />
                 } else {
-                    // return <InterpreterViewBookings goBackAPage={this.props.goBackAPage} />
+                    return <InterpreterViewBookings goBackAPage={this.props.goBackAPage} goToPage={this.props.goToPage} username={this.props.username} />
                 }
-                break;
             case 3:
                 return <MakeBookingPage goBackAPage={this.props.goBackAPage} username={this.props.username} />
             default:

@@ -2,10 +2,11 @@
     {
         "id": 1,
         "bookingName": "Signly first booking",
-        "timeFrom": "2020-01-30T16:52:49.669",
-        "timeTo": "2020-01-30T16:52:49.669",
+        "timeFrom": "2020-01-30",
+        "timeTo": "2020-01-31",
         "companyName": "Sky",
         "firstName": "Suraj",
+        "interpreter": "rrr Remus",
         "emailAddress": "sss",
         "lastName": "Kalsi",
         "state": "Booked"
@@ -13,10 +14,11 @@
     {
         "id": 2,
         "bookingName": "Signly second booking",
-        "timeFrom": "2020-01-30T16:53:01.486",
-        "timeTo": "2020-01-30T16:53:01.486",
+        "timeFrom": "2020-01-30",
+        "timeTo": "2020-01-31",
         "companyName": "Sky",
         "emailAddress": "sss",
+        "interpreter": null,
         "firstName": "Charlene",
         "lastName": "Bandi",
         "state": "Open"
