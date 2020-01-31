@@ -10,10 +10,8 @@ export default class SignInPage extends Component {
                 <BackButton goBackAPage={this.props.goBackAPage} />
                 <div className="Homepage">
                     <header className="Homepage-welcome-message">
-                        <p> Sign in page </p>
-                        <p className="Homepage-second-message"> Please enter your email address </p>
+                        <p> Sign In </p>
                     </header>
-
                     <SignInForm handleSignIn={this.props.handleSignIn} />
                 </div>
             </div>
