@@ -9,7 +9,7 @@ export default class InterpreterViewBookings extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            tableData: employeeBookingsMock
+            tableData: null
         }
     }
 

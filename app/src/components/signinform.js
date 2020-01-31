@@ -6,16 +6,13 @@ export default class SignInForm extends Component {
     constructor(props) {
       super(props);
       this.state = {username: '', userType: 'EMPLOYEE'};
-
-      this.handleUsernameChange = this.handleUsernameChange.bind(this);
-      this.handleUserTypeChange = this.handleUserTypeChange.bind(this);
     }
 
-    handleUsernameChange(event) {
+    handleUsernameChange = (event) => {
       this.setState({username: event.target.value.toLowerCase()});
     }
 
-    handleUserTypeChange(event) {
+    handleUserTypeChange = (event) => {
       this.setState({userType: event.target.value});
   }
   
@@ -24,11 +21,11 @@ export default class SignInForm extends Component {
         <div className="">
             <Form>
                 <h5>Who are you?</h5>
-                  <select value={this.state.userType} onChange={this.handleUserTypeChange}>
+                  <select value={this.state.userType} onChange={(e) => this.handleUserTypeChange(e)}>
                       <option value="EMPLOYEE">Employee</option>
                       <option value="INTERPRETER">Interpreter</option>
                   </select>
-                <Form.Input style={{width: "400px"}} onChange={this.handleUsernameChange} value={this.state.username} fluid label='Email Address' placeholder='Email' />
+                <Form.Input style={{width: "400px"}} onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} fluid label='Email Address' placeholder='Email' />
             </Form>
 
             <div style={{marginTop: '10px'}}>
