@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.idea",
+    "\\service",
+    "\\service\\src",
+    "\\service\\src\\main",
+    "\\service\\src\\main\\java",
+    "\\service\\src\\main\\java\\api",
+    "\\service\\src\\main\\java\\api\\controllers"
+  ],
+  "SelectedNode": "\\service\\README.md",
+  "PreviewInSolutionExplorer": false
+}
