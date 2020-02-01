@@ -83,7 +83,7 @@ export default class InterpreterTable extends Component {
               }}
             >
               <Header>Success!</Header>
-              <p>You have successfully accepted the booking</p>
+              <p>You have successfully accepted the booking, remember to carry and display your badge at all times</p>
 
               <Button
                 content='Close'
