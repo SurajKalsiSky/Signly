@@ -23,7 +23,7 @@ export default class InterpreterViewBookings extends Component {
             .then(json => Array.isArray(json) && this.setState({tableData: json}))
     }
 
-    noBookings = () => (<p className="no-bookings"> You have no bookings </p>)
+    noBookings = () => (<p className="no-bookings"> You have no requests </p>)
 
     render() {
         return (
